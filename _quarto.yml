@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "OSC_lab-meeting_wiedemer_20240624"
+  title: "OSC_labmeeting_wiedemer_20240624"
   navbar:
     left:
       - href: index.qmd
