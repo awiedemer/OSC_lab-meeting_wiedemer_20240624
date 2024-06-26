@@ -167,7 +167,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#commands-that-do-stuff-cd" id="toc-commands-that-do-stuff-cd" class="nav-link" data-scroll-target="#commands-that-do-stuff-cd">Commands that do stuff: <code>cd</code></a></li>
   <li><a href="#making-directories-with-mkdir" id="toc-making-directories-with-mkdir" class="nav-link" data-scroll-target="#making-directories-with-mkdir">Making directories with <code>mkdir</code></a></li>
+  <li><a href="#touch---update-or-create" id="toc-touch---update-or-create" class="nav-link" data-scroll-target="#touch---update-or-create"><code>touch</code> - update or create</a></li>
+  <li><a href="#ls---list-whats-in-a-dir" id="toc-ls---list-whats-in-a-dir" class="nav-link" data-scroll-target="#ls---list-whats-in-a-dir"><code>ls</code> - list, what’s in a dir</a></li>
   <li><a href="#cp---copy-paste" id="toc-cp---copy-paste" class="nav-link" data-scroll-target="#cp---copy-paste"><code>cp</code> - copy paste</a></li>
+  <li><a href="#mv---move" id="toc-mv---move" class="nav-link" data-scroll-target="#mv---move"><code>mv</code> - move</a></li>
+  <li><a href="#rm---remove" id="toc-rm---remove" class="nav-link" data-scroll-target="#rm---remove"><code>rm</code> - remove</a></li>
+  <li><a href="#chmod---change-file-permissions" id="toc-chmod---change-file-permissions" class="nav-link" data-scroll-target="#chmod---change-file-permissions"><code>chmod</code> - change file permissions</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#project-and-file-organization-best-practices" id="toc-project-and-file-organization-best-practices" class="nav-link" data-scroll-target="#project-and-file-organization-best-practices">Project and File organization best practices</a>
+  <ul class="collapse">
+  <li><a href="#some-quick-best-practices" id="toc-some-quick-best-practices" class="nav-link" data-scroll-target="#some-quick-best-practices">Some quick best practices</a>
+  <ul class="collapse">
+  <li><a href="#use-one-dir-per-preject" id="toc-use-one-dir-per-preject" class="nav-link" data-scroll-target="#use-one-dir-per-preject">Use one dir per preject!</a></li>
+  <li><a href="#use-relative-paths-whenever-able" id="toc-use-relative-paths-whenever-able" class="nav-link" data-scroll-target="#use-relative-paths-whenever-able">Use relative paths whenever able</a></li>
+  <li><a href="#file-naming" id="toc-file-naming" class="nav-link" data-scroll-target="#file-naming">File naming</a></li>
+  <li><a href="#document-everying" id="toc-document-everying" class="nav-link" data-scroll-target="#document-everying">Document everying</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -660,6 +675,23 @@ More on movement
 <section id="making-directories-with-mkdir" class="level3">
 <h3 class="anchored" data-anchor-id="making-directories-with-mkdir">Making directories with <code>mkdir</code></h3>
 <p><code>mkdir</code> takes a dir as an argument and creates it if one does not already exist</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># don't run this, its just an example of how you would use it</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="op">&lt;</span>/new_dir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can make multiple subdirectories by adding the <code>-p</code> argument to <code>mkdir</code></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># don't run this, its just an example of how you would use it</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> <span class="op">&lt;</span>/new_dir/new_subdir/new_sub-subdir<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 <p>for practice, lets navigate to the <code>users</code> folder and make our own folder!</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -677,7 +709,7 @@ Warning
 <b>Solution</b> (click here)
 </summary>
 <p>from within <code>\PAS1640</code></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="dt">\u</span>sers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="dt">\u</span>sers</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </div>
@@ -685,9 +717,9 @@ Warning
 <h4 class="anchored" data-anchor-id="making-your-own-dir">Making your own dir</h4>
 <p>Within the <code>\users</code> dir we can make our own directories!!</p>
 <p>call it whatever you want, but I personally recommend using</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="va">$USER</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout callout-style-default callout-note callout-titled" title="A tiny bit on variables">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="true" aria-label="Toggle callout">
+<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="va">$USER</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-tip callout-titled" title="A tiny bit on variables">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -696,7 +728,7 @@ A tiny bit on variables
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse show">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>While I’m skipping a detailed explanation on variables, I’ll quickly mention them here</p>
 <p>in UNIX, <strong>variables</strong> are kept in objects beginning with a dollar sign (<code>$</code>)</p>
@@ -706,19 +738,246 @@ A tiny bit on variables
 <li>$USER : stores the name of the user</li>
 </ul>
 <p>to see what a variable contains, try the <code>echo</code> function</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is a general example, don't run it</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="ex">echo$</span><span class="op">&lt;</span>VARIABLE<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="ex">echo</span><span class="va">$USER</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is a general example, don't run it</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="ex">echo$</span><span class="op">&lt;</span>VARIABLE<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="ex">echo</span><span class="va">$USER</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </section>
+</section>
+<section id="touch---update-or-create" class="level3">
+<h3 class="anchored" data-anchor-id="touch---update-or-create"><code>touch</code> - update or create</h3>
+<p><code>touch</code> has a little bit of an odd name for what it is most often used for.</p>
+<p>the primary intended use of <code>touch</code> is to “update the access and modification times of each FILE to the current time”, but in my experince is used more for its secondary function of creating an empty file if one does not already exist.</p>
+<p>use</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this is a general example, don't run it</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> <span class="op">&lt;</span>file<span class="op">&gt;</span>.<span class="op">&lt;</span>extension<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>e.g.,</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Use this command to create a README file in your projects as a descriptor of whats there, part of good documentation!!</p>
+</section>
+<section id="ls---list-whats-in-a-dir" class="level3">
+<h3 class="anchored" data-anchor-id="ls---list-whats-in-a-dir"><code>ls</code> - list, what’s in a dir</h3>
+<p><code>ls</code> can be run on its own to show what is in a dir</p>
+<p>use</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># don't run this, its just a template example</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>ls also has a bunch of useful arguments to increase its usability which I reccomend checking out, but here are a few I like</p>
+<div class="callout callout-style-default callout-note callout-titled" title="important arguments for `ls`">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+important arguments for <code>ls</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><code>-l</code> : long list formatting (looks better IMO)</p>
+<p><code>-t</code> : sorts lists by time, showing the newest first</p>
+<p><code>-c</code> : with <code>-t</code>, orders by last modified</p>
+<p><code>-r</code> : reverses order shown, useful when used alongside <code>-lt</code></p>
+<p><code>-a</code>, <code>--all</code> : shows all files, including hidden ones</p>
+<p>here’s probably the version I use the most</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="cp---copy-paste" class="level3">
 <h3 class="anchored" data-anchor-id="cp---copy-paste"><code>cp</code> - copy paste</h3>
 <p><code>cp</code> takes two files as arguments, copying the first to the second</p>
 <p>e.g.,</p>
-<p>```bash cp</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># don't run this, its just a template example</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="op">&lt;</span>/from/<span class="op">&gt;</span> <span class="op">&lt;</span>/to/<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>using <code>cp</code> on dirs requires the <code>-r</code> argument</p>
+<div class="callout callout-style-default callout-note callout-titled" title="important arguments for `cp`">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+important arguments for <code>cp</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><code>-r</code>, <code>--recursive</code> : required when copying all contents of a dir from one to another</p>
+</div>
+</div>
+</div>
+</section>
+<section id="mv---move" class="level3">
+<h3 class="anchored" data-anchor-id="mv---move"><code>mv</code> - move</h3>
+<p>similar to <code>cp</code>, <code>mv</code> takes two files as arguments, but instead of just coppying, it coppies the file and then deletes the old one</p>
+<p>use</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># don't run this, its just a template example</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> <span class="op">&lt;</span>/from_old_place/<span class="op">&gt;</span> <span class="op">&lt;</span>/to_new_place/<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>it again uses the <code>-r</code> argument if you want to move a dir containing any number of files or dirs</p>
+<div class="callout callout-style-default callout-note callout-titled" title="important arguments for `mv`">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+important arguments for <code>mv</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><code>-r</code>, <code>--recursive</code> : required when moving all contents of a dir from one to another</p>
+</div>
+</div>
+</div>
+</section>
+<section id="rm---remove" class="level3">
+<h3 class="anchored" data-anchor-id="rm---remove"><code>rm</code> - remove</h3>
+<p>as the name implies, using <code>rm</code> removes a file. This can be a dangerous function as files are not always backed up, so use with caution!</p>
+<p>To remove a dir we again need to use the <code>-r</code> argument</p>
+<div class="callout callout-style-default callout-note callout-titled" title="important arguments for `rm``">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+important arguments for `rm``
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p><code>-r</code>, <code>--recursive</code> : required when removing all contents of a dir</p>
+<p><code>-i</code> : requires a prompt to remove a file, makes it much safer</p>
+<p><code>-f</code>, <code>-force</code> : forces a remove, be careful when using this</p>
+</div>
+</div>
+</div>
+</section>
+<section id="chmod---change-file-permissions" class="level3">
+<h3 class="anchored" data-anchor-id="chmod---change-file-permissions"><code>chmod</code> - change file permissions</h3>
+<p><code>chmod</code> allows you to change file permission access for file owner (user, <code>u</code>), “group” (<code>g</code>), others (<code>o</code>) or everyone (all; <code>a</code>). Permissions can be set for reading (<code>r</code>), writing (<code>w</code>), and executing (<code>x</code>).</p>
+<p><code>chmod</code> takes a user (either file owner(<code>u</code>), group(<code>g</code>), or everyone(<code>a</code>)) and <strong>adds</strong> or <strong>subtracts</strong> permissions for a given file</p>
+<p>use</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># don't run this, its just a template example</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> <span class="op">&lt;</span>user<span class="op">&gt;</span> <span class="op">&lt;</span> + or <span class="at">-</span> <span class="op">&gt;</span> <span class="op">&lt;</span>permission<span class="op">&gt;</span> <span class="op">&lt;</span>file<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>e.g.,</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># don't run these, they are just examples of use cases</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="co"># this will make a script executable for the file owner</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> u+x script.sh</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="co"># this will make data read only</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> a=r data/raw/<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>lets take a look at what the file permissions look like for the PAS1640 home dir</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /fs/ess/PAS1640</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-lt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="bash-out"><code>total 20
+drwxr-xr-x  3 awiedemer673 PAS1640  4096 Jun 25 01:38 users
+drwxr-xr-x  3 awiedemer673 PAS1640  4096 Jun 25 01:26 practice_location
+drwxr-xr-x  3 msholola     PAS0471  4096 Apr 17 20:34 maria
+drwxr-xr-x 12 msholola     PAS0471 16384 Mar 22 10:55 plasma_transcriptomics
+drwxr-xr-x  4 cooperstone  PAS1542  4096 Mar 14 13:51 jess
+drwxr-xr-x  6 quiroz1      PAS1640  4096 Jun  2  2023 instrument_files
+drwxr-xr-x  7 quiroz1      PAS1640  4096 May 13  2023 Apples_DIA
+drwxr-xr-x  3 quiroz1      PAS1640  4096 Jun  6  2022 Apples_neg</code></pre>
+<p>the string of seemingly random letters and dashes denotes file permissions (e.g., drwxr-xr-x)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/file_permissions.png" class="img-fluid figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="project-and-file-organization-best-practices" class="level1">
+<h1>Project and File organization best practices</h1>
+<p>Good organization facilitates</p>
+<pre><code>- Collaboration
+- Reproducibility
+- Automation
+- Version Control
+- General chaos prevention</code></pre>
+<section id="some-quick-best-practices" class="level2">
+<h2 class="anchored" data-anchor-id="some-quick-best-practices">Some quick best practices</h2>
+<section id="use-one-dir-per-preject" class="level3">
+<h3 class="anchored" data-anchor-id="use-one-dir-per-preject">Use one dir per preject!</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/project_org.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<section id="separate-different-kinds-of-files-using-a-consistent-dir-structure" class="level4">
+<h4 class="anchored" data-anchor-id="separate-different-kinds-of-files-using-a-consistent-dir-structure">Separate different kinds of files using a consistent dir structure</h4>
+<p>Separate</p>
+<ul>
+<li><strong>Raw data</strong> (treat as <strong>read-only</strong>, don’t wanna directly mess with it - use <code>chmod a=r data/raw/*</code>)</li>
+<li><strong>Scripts</strong></li>
+<li><strong>Outputs</strong> (results) (treat as disposable and possible to regenerate - make outputs <strong>reproducable</strong>)</li>
+</ul>
+</section>
+</section>
+<section id="use-relative-paths-whenever-able" class="level3">
+<h3 class="anchored" data-anchor-id="use-relative-paths-whenever-able">Use relative paths whenever able</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/rel_path.png" class="img-fluid figure-img" style="width:70.0%"></p>
+</figure>
+</div>
+<p>if you use <code>mv</code> the absolute path changes, but not necessarily relative paths</p>
+<blockquote class="blockquote">
+<p>again, <code>.</code> is where you are, <code>..</code> signifies the path one up in the hierarchy</p>
+</blockquote>
+</section>
+<section id="file-naming" class="level3">
+<h3 class="anchored" data-anchor-id="file-naming">File naming</h3>
+<p>3 good principals for file naming</p>
+<pre><code>- Machine readable
+- Human readable
+- Ordered in a consistent way</code></pre>
+<section id="machine-readable" class="level4">
+<h4 class="anchored" data-anchor-id="machine-readable">Machine readable</h4>
+<p>In file names provide metadata such as sample ID, date, treatment separated by underscores (_)</p>
+<p>e.g.,</p>
+<pre><code>- astro_30S_har2_rep1.csv
+- rariety_treatment_replicate</code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> astro<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="bash-out"><code>astro_00S_har1_rep1.csv
+astro_10S_har1_rep1.csv
+astro_20S_har1_rep1.csv
+astro_30S_har1_rep1.csv
+etc...</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="pp">*</span>har2<span class="pp">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<pre class="bash-out"><code>astro_00S_har2_rep1
+esme_10S_har2_rep2
+etc...</code></pre>
+</section>
+<section id="combining-machine-and-human-readability" class="level4">
+<h4 class="anchored" data-anchor-id="combining-machine-and-human-readability">Combining machine and human readability</h4>
+<pre><code>- Use underscores (_) to separate distinct units (sample name, metadata)
+- If you must separate words, use dashes (-) (i.e., wild-type)
+- Limit period use (.) to file extensions (eg., .txt, .csv)
+- (generally) __Never use spaces__</code></pre>
+</section>
+<section id="default-ordering" class="level4">
+<h4 class="anchored" data-anchor-id="default-ordering">Default ordering</h4>
+<pre><code>- Use leading zeros when ordering numbers (005, 099)
+- Dates should be YYYY-MM-DD
+- Group similar files together by using the same phrase and number scripts by extension order </code></pre>
+<p>e.g.,</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="ex">AP-01_normalize.R</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="ex">AP-02_log-transform.R</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="ex">AP-03_test-sig.R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="document-everying" class="level3">
+<h3 class="anchored" data-anchor-id="document-everying">Document everying</h3>
+<p><strong>Use a README.md file to explain whats in what</strong></p>
 
 
 </section>

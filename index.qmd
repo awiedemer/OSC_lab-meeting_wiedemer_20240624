@@ -386,6 +386,19 @@ cd ../../../../
 
 `mkdir` takes a dir as an argument and creates it if one does not already exist
 
+```bash
+# don't run this, its just an example of how you would use it
+mkdir </new_dir>
+```
+::: {.callout-note .callout-warning icon="flase" }
+You can make multiple subdirectories by adding the `-p` argument to `mkdir`
+
+```bash
+# don't run this, its just an example of how you would use it
+mkdir -p </new_dir/new_subdir/new_sub-subdir>
+```
+:::
+
 for practice, lets navigate to the `users` folder and make our own folder!
 
 ::: {.callout-warning .callout-warning icon="flase" }
@@ -414,7 +427,9 @@ call it whatever you want, but I personally recommend using
 mkdir $USER
 ```
 
-::: {.callout-note title="A tiny bit on variables" collapse="false"}
+
+
+::: {.callout-tip title="A tiny bit on variables" collapse="false"}
 
 While I'm skipping a detailed explanation on variables, I'll quickly mention them here
 
@@ -438,6 +453,58 @@ echo$USER
 
 :::
 
+### `touch` - update or create
+
+`touch` has a little bit of an odd name for what it is most often used for. 
+
+the primary intended use of `touch` is to "update the access and modification times of each FILE to the current time", but in my experince is used more for its secondary function of creating an empty file if one does not already exist.
+
+use
+
+```bash
+# this is a general example, don't run it
+touch <file>.<extension>
+```
+
+e.g.,
+
+```bash
+touch README.md
+```
+
+Use this command to create a README file in your projects as a descriptor of whats there, part of good documentation!!
+
+### `ls` - list, what's in a dir
+
+`ls` can be run on its own to show what is in a dir
+
+use
+
+```bash
+# don't run this, its just a template example
+ls
+```
+
+ls also has a bunch of useful arguments to increase its usability which I reccomend checking out, but here are a few I like
+
+::: {.callout-note title="important arguments for `ls`" collapse="false"}
+`-l` : long list formatting (looks better IMO)
+
+`-t` : sorts lists by time, showing the newest first
+
+`-c` : with `-t`, orders by last modified
+
+`-r` : reverses order shown, useful when used alongside `-lt`
+
+`-a`, `--all` : shows all files, including hidden ones
+
+here's probably the version I use the most
+
+```bash
+ls -lt
+```
+:::
+
 
 ### `cp` - copy paste
 
@@ -446,18 +513,192 @@ echo$USER
 e.g.,
 
 ```bash
-cp 
+# don't run this, its just a template example
+cp </from/> </to/>
+```
+
+using `cp` on dirs requires the `-r` argument
+
+::: {.callout-note title="important arguments for `cp`" collapse="false"}
+`-r`, `--recursive` : required when copying all contents of a dir from one to another
+:::
+
+### `mv` - move
+
+similar to `cp`, `mv` takes two files as arguments, but instead of just coppying, it coppies the file and then deletes the old one
+
+use
+
+```bash
+# don't run this, its just a template example
+mv </from_old_place/> </to_new_place/>
+```
+
+it again uses the `-r` argument if you want to move a dir containing any number of files or dirs
+
+::: {.callout-note title="important arguments for `mv`" collapse="false"}
+`-r`, `--recursive` : required when moving all contents of a dir from one to another
+:::
+
+### `rm` - remove
+
+as the name implies, using `rm` removes a file. This can be a dangerous function as files are not always backed up, so use with caution!
+
+To remove a dir we again need to use the `-r` argument
+
+::: {.callout-note title="important arguments for `rm``" collapse="false"}
+`-r`, `--recursive` : required when removing all contents of a dir
+
+`-i` : requires a prompt to remove a file, makes it much safer
+
+`-f`, `-force` : forces a remove, be careful when using this
+:::
 
 
+### `chmod` - change file permissions
+
+`chmod` allows you to change file permission access for file owner (user, `u`), “group” (`g`), others (`o`) or everyone (all; `a`). Permissions can be set for reading (`r`), writing (`w`), and executing (`x`).
+
+`chmod` takes a user (either file owner(`u`), group(`g`), or everyone(`a`)) and __adds__ or __subtracts__ permissions for a given file
+
+use
+
+```bash
+# don't run this, its just a template example
+chmod <user> < + or - > <permission> <file>
+```
+
+e.g.,
+
+```bash
+# don't run these, they are just examples of use cases
+
+# this will make a script executable for the file owner
+chmod u+x script.sh
+
+# this will make data read only
+chmod a=r data/raw/*
+```
+
+lets take a look at what the file permissions look like for the PAS1640 home dir
+
+```bash
+cd /fs/ess/PAS1640
+
+ls -lt
+```
+```bash-out
+total 20
+drwxr-xr-x  3 awiedemer673 PAS1640  4096 Jun 25 01:38 users
+drwxr-xr-x  3 awiedemer673 PAS1640  4096 Jun 25 01:26 practice_location
+drwxr-xr-x  3 msholola     PAS0471  4096 Apr 17 20:34 maria
+drwxr-xr-x 12 msholola     PAS0471 16384 Mar 22 10:55 plasma_transcriptomics
+drwxr-xr-x  4 cooperstone  PAS1542  4096 Mar 14 13:51 jess
+drwxr-xr-x  6 quiroz1      PAS1640  4096 Jun  2  2023 instrument_files
+drwxr-xr-x  7 quiroz1      PAS1640  4096 May 13  2023 Apples_DIA
+drwxr-xr-x  3 quiroz1      PAS1640  4096 Jun  6  2022 Apples_neg
+```
+
+the string of seemingly random letters and dashes denotes file permissions (e.g., drwxr-xr-x)
+
+![](img/file_permissions.png){fig-align="center" width="60%"}
+
+# Project and File organization best practices
+
+Good organization facilitates
+
+	- Collaboration
+	- Reproducibility
+	- Automation
+	- Version Control
+	- General chaos prevention
 
 
+## Some quick best practices
+
+### Use one dir per preject!
+
+![](img/project_org.png){fig-align="center" width="70%"}
+
+#### Separate different kinds of files using a consistent dir structure
+
+Separate
+
+- __Raw data__ (treat as __read-only__, don’t wanna directly mess with it - use `chmod a=r data/raw/*`)
+- __Scripts__
+- __Outputs__ (results) (treat as disposable and possible to regenerate - make outputs __reproducable__)
 
 
+### Use relative paths whenever able
+
+![](img/rel_path.png){fig-align="center" width="70%"}
+
+if you use `mv` the absolute path changes, but not necessarily relative paths
+
+> again, `.` is where you are, `..` signifies the path one up in the hierarchy
 
 
+### File naming
+
+3 good principals for file naming 
+
+	- Machine readable
+	- Human readable
+	- Ordered in a consistent way
+
+#### Machine readable
 
 
+In file names provide metadata such as sample ID, date, treatment separated by underscores (_)
+
+e.g.,
+
+	- astro_30S_har2_rep1.csv
+	- rariety_treatment_replicate
+
+```bash
+ls astro*
+```
+```bash-out
+astro_00S_har1_rep1.csv
+astro_10S_har1_rep1.csv
+astro_20S_har1_rep1.csv
+astro_30S_har1_rep1.csv
+etc...
+```
+
+```bash
+ls *har2*
+```
+```bash-out
+astro_00S_har2_rep1
+esme_10S_har2_rep2
+etc...
+```
+
+#### Combining machine and human readability
 
 
+	- Use underscores (_) to separate distinct units (sample name, metadata)
+	- If you must separate words, use dashes (-) (i.e., wild-type)
+	- Limit period use (.) to file extensions (eg., .txt, .csv)
+	- (generally) __Never use spaces__
 
+#### Default ordering
+
+	- Use leading zeros when ordering numbers (005, 099)
+	- Dates should be YYYY-MM-DD
+	- Group similar files together by using the same phrase and number scripts by extension order 
 	
+e.g.,
+
+```bash
+AP-01_normalize.R
+AP-02_log-transform.R
+AP-03_test-sig.R
+```
+
+### Document everying
+
+__Use a README.md file to explain whats in what__
+
