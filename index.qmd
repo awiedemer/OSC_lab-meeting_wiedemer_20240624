@@ -5,7 +5,6 @@ date: "2024-06-25"
 categories: [command line, OSC, Unix]
 title-block-banner: false
 number-depth: 3
-image: img/tidy_data_img.jpeg
 editor_options:
   chunk_output_type: console
 knitr:
