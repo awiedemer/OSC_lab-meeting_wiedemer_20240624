@@ -7,14 +7,17 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: OSC and CLI Crash Course
       - about.qmd
+      - href: page_2.qmd
+        text: Software at OSC
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+
 
 
 
